@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
+import UserContext from './userContext'
 
 function Users() {
+    const data = useContext(UserContext)
     return (
         <>
          <div class="d-sm-flex align-items-center justify-content-between mb-4">
@@ -26,10 +28,9 @@ function Users() {
                                     <thead>
                                         <tr>
                                             <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
+                                            <th>User Name</th>
+                                            <th>Email</th>
+                                            <th>Mobile</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -39,42 +40,24 @@ function Users() {
                                             <th>Position</th>
                                             <th>Office</th>
                                             <th>Age</th>
-                                            <th>Start date</th>
                                             <th>Action</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
-                                        <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>
-                                                <Link to="/user-edit/1">Edit</Link>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>
-                                                <Link to="/user-edit/2">Edit</Link>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>
-                                                <Link to="/user-edit/3">Edit</Link>
-                                            </td>
-                                        </tr>
-                                        
+                                        {
+                                            data.userData.map((user) => {
+                                                return <tr>
+                                                <td>{user.name}</td>
+                                                <td>{user.username}</td>
+                                                <td>{user.email}</td>
+                                                <td>{user.mobile}</td>
+                                                <td>
+                                                    <Link to="/user-edit/1">Edit</Link>
+                                                </td>
+                                            </tr>
+                                            })
+                                        }
+                                   
                                     </tbody>
                                 </table>
                             </div>

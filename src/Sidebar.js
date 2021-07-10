@@ -1,7 +1,9 @@
-import React from 'react'
+import React,{useContext} from 'react'
 import { Link } from 'react-router-dom'
+import UserContext from "./userContext";
 
 function Sidebar() {
+    const data = useContext(UserContext)
     return (
         <>
             <ul className="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
@@ -47,6 +49,7 @@ function Sidebar() {
                         <span>Users</span>
                         </Link>
                 </li>
+           
 
                 <hr className="sidebar-divider d-none d-md-block" />
 

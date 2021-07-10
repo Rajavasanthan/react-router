@@ -12,10 +12,12 @@ import {
 import Users from './Users';
 import Usercreate from './Usercreate';
 import UserEdit from './UserEdit';
+import { UserProvider } from "./userContext";
 
 function App() {
   return (
-    <Router>
+    <UserProvider>
+      <Router>
       <div id="wrapper">
         <Sidebar></Sidebar>
         <div id="content-wrapper" className="d-flex flex-column">
@@ -33,6 +35,7 @@ function App() {
         </div>
       </div>
     </Router>
+    </UserProvider>
   );
 }
 

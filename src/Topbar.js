@@ -1,6 +1,9 @@
-import React from 'react'
-
+import React,{useContext} from 'react'
+import UserContext from "./userContext";
 function Topbar() {
+
+    const data = useContext(UserContext);
+   
     return (
        <>
             <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
